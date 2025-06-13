@@ -1,0 +1,2 @@
+确保电脑已经下载ptython，并且有numpy、Pillow、Flask、opencv-python库，
+下载文件包后，进入所在目录的终端，输入python app.py，复制出现的网址，进入浏览器输入网址，即可进入隐写术平台。

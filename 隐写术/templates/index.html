@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多媒体隐写系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 多媒体隐写系统</h1>
+        
+        <div class="tabs">
+            <div class="tab active" id="encode-tab">信息隐藏</div>
+            <div class="tab" id="decode-tab">信息提取</div>
+        </div>
+        
+        <div class="tab-content" id="encode-content">
+            <div class="panel">
+                <h3>选择载体类型:</h3>
+                <select id="carrier-type">
+                    <option value="图片">图片</option>
+                    <option value="音频">音频</option>
+                    <option value="视频">视频</option>
+                </select>
+                
+                <h3>上传载体文件:</h3>
+                <div class="file-input">
+                    <input type="file" id="carrier-file">
+                    <button class="file-btn">选择文件</button>
+                </div>
+                
+                <h3>隐藏的信息类型:</h3>
+                <select id="secret-type">
+                    <option value="文本">文本</option>
+                    <option value="文件">文件</option>
+                </select>
+                
+                <div id="text-input-container">
+                    <h3>输入要隐藏的文本:</h3>
+                    <textarea id="secret-text"></textarea>
+                </div>
+                
+                <div id="file-input-container" style="display: none;">
+                    <h3>上传要隐藏的文件:</h3>
+                    <div class="file-input">
+                        <input type="file" id="secret-file">
+                        <button class="file-btn">选择文件</button>
+                    </div>
+                </div>
+                
+                <button id="encode-btn" class="action-btn">开始隐藏</button>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="decode-content" style="display: none;">
+            <div class="panel">
+                <h3>上传含有隐写信息的文件:</h3>
+                <div class="file-input">
+                    <input type="file" id="decode-file">
+                    <button class="file-btn">选择文件</button>
+                </div>
+                
+                <button id="decode-btn" class="action-btn">开始提取</button>
+                
+                <div class="result-container">
+                    <div id="text-result">
+                        <h3>提取的文本:</h3>
+                        <div class="result-box">
+                            <p id="result-text"></p>
+                        </div>
+                    </div>
+                    
+                    <div id="file-result" style="display: none;">
+                        <h3>提取的文件:</h3>
+                        <div class="result-box">
+                            <a id="download-link" href="#" class="action-btn" id="download-btn">下载文件</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
